@@ -29,7 +29,7 @@ Authentication is implemented using JSON Web Tokens (JWT), allowing users to inc
 
 ## Features
 
-List the key features of your API.
+Key features of the API.
 
 - User Authentication: Users are authenticated using email and password, with support for JSON Web Tokens (JWT).
 - User Roles: Users have roles (Member or Admin) determining their access levels to cards.
@@ -44,7 +44,44 @@ List the key features of your API.
 
 ## Getting Started
 
-Guide users on how to get started with using your API.
+- Clone the Repository: Clone the repository containing the API code to your local machine.
+- Database Configuration: Ensure you have a Microsoft SQL database installed. Update the database connection string in appsettings.json to point to your database.
+- Install Dependencies: Install the necessary dependencies for the API. This includes .NET Core SDK and any additional packages specified in the project's csproj files.
+- Database Setup: Run the following Microsoft SQL server scripts to create Users and Cards tables.
+```
+CREATE TABLE [dbo].[Users](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Email] [nvarchar](255) NOT NULL,
+	[PasswordHash] [varbinary](max) NOT NULL,
+	[PasswordSalt] [varbinary](max) NOT NULL,
+	[UserRole] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[Cards](
+	[Id] [uniqueidentifier] NOT NULL,
+	[UserId] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](255) NOT NULL,
+	[Description] [nvarchar](max) NULL,
+	[Color] [nvarchar](7) NULL,
+	[Status] [int] NOT NULL,
+	[CreatedAt] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Cards]  WITH CHECK ADD FOREIGN KEY([UserId])
+REFERENCES [dbo].[Users] ([Id])
+GO
+```
+- 
 
 ### Prerequisites
 
