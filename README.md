@@ -37,11 +37,12 @@ Key features of the API.
 
 ## Getting Started
 
-- Clone the Repository: Clone the repository containing the API code to your local machine.
+- Clone the Repository: Clone the repository containing the API code to your local machine: ```git clone https://github.com/BillyMganda/Cards.git```
 - Database Configuration: Ensure you have a Microsoft SQL database installed. Update the database connection string in appsettings.json to point to your database.
-- Install Dependencies: Install the necessary dependencies for the API. This includes .NET Core SDK and any additional packages specified in the project's csproj files.
+- Install Dependencies: Install the necessary dependencies for the API. This includes .NET Core SDK(v6) and any additional packages specified in the project's csproj files.
 - Database Setup: Run the following Microsoft SQL server scripts to create Users and Cards tables.
 ```
+-- CREATE Users Table
 CREATE TABLE [dbo].[Users](
 	[Id] [uniqueidentifier] NOT NULL,
 	[Email] [nvarchar](255) NOT NULL,
@@ -55,6 +56,7 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 
+-- CREATE Cards Table
 CREATE TABLE [dbo].[Cards](
 	[Id] [uniqueidentifier] NOT NULL,
 	[UserId] [uniqueidentifier] NOT NULL,
@@ -104,8 +106,41 @@ Users can interact with the Cards RESTful API to manage tasks efficiently. Here'
 - Search Cards: Users can search through cards they have access to by specifying various filters such as name, color, status, and date of creation. Additionally, they can limit the number of results and sort them based on different criteria. Use the following endpoint to search for cards: https://localhost:7236/api/Cards/search?Name=card&Color=white&Status=0&Page=1&Size=1&Offset=0&Limit=0
 - Retrieve a Card: Users can request a single card they have access to by providing the card's ID. This allows them to view the details of a specific task.
 Use the following endpoint to retrieve a card: https://localhost:7236/api/Cards/cardId?cardId=80b2c1e6-7783-4a39-3ea7-08dc2c59dc16
+```json response
+{
+        "id": "38fc170b-3076-4ae3-ea02-08dc2c20761a",
+        "name": "card name",
+        "description": "card description",
+        "color": "white",
+        "status": 0,
+        "createdAt": "2024-02-12T23:16:01.75",
+        "userId": "94764e44-54b1-4e94-b5e4-cf82704eb35b"
+    }
+```
 - Retrieve a list of cards: Users can request a list of cards they have access to. This allows them to view the details of cards.
 Use the following endpoint to retrieve a list of cards: https://localhost:7236/api/Cards
+```json response
+[    
+    {
+        "id": "d2bc1857-a108-442a-3ea5-08dc2c59dc16",
+        "name": "card name",
+        "description": "card description",
+        "color": "red",
+        "status": 0,
+        "createdAt": "2024-02-13T06:06:09.993",
+        "userId": "06c95e9e-a283-4315-ab21-a2f36c9ba239"
+    },    
+    {
+        "id": "8c027657-d315-47bd-3ea9-08dc2c59dc16",
+        "name": "card name",
+        "description": "card description",
+        "color": "blue",
+        "status": 0,
+        "createdAt": "2024-02-13T06:07:04.82",
+        "userId": "9522870c-e8f8-48cc-83de-cdacf7a73f52"
+    }
+]
+```
 - Update Cards: Users can update the name, description, color of a card they have access to. They can also clear out the contents of the description and color fields if needed.
 Use the following endpoint to update a card by using PUT command: https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16
 ```json
@@ -122,7 +157,7 @@ Use the following endpoint to update a card status by using PUT command: https:/
   "status": 1
 }
 ```
-- Delete Cards: Users can delete a card they have access to, removing the task from the system.
+- Delete Cards: Users can delete a card they have access to, removing the task from the system. On successful card deletion, a 204 NoContent status code is returned.
 Use the following endpoint to delete a card by using DELETE command: https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16
 
 By following these steps, users can effectively create, manage, and track tasks using the Cards RESTful API.
