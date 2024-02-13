@@ -105,9 +105,9 @@ Users can interact with the Cards RESTful API to manage tasks efficiently. Here'
 - Retrieve a Card: Users can request a single card they have access to by providing the card's ID. This allows them to view the details of a specific task.
 Use the following endpoint to retrieve a card: https://localhost:7236/api/Cards/cardId?cardId=80b2c1e6-7783-4a39-3ea7-08dc2c59dc16
 - Retrieve a list of cards: Users can request a list of cards they have access to. This allows them to view the details of cards.
-Use the following endpoint to retrieve a list of cards: [https://localhost:7236/api/Cards]
+Use the following endpoint to retrieve a list of cards: https://localhost:7236/api/Cards
 - Update Cards: Users can update the name, description, color of a card they have access to. They can also clear out the contents of the description and color fields if needed.
-Use the following endpoint to update a card by using PUT command: [https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16]
+Use the following endpoint to update a card by using PUT command: https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16
 ```json
 {
   "name": "stringY",
@@ -116,17 +116,17 @@ Use the following endpoint to update a card by using PUT command: [https://local
 }
 ```
 - Update Cards Status: Users can update the status of a card they have access to by passing a request body in JSON format.
-Use the following endpoint to update a card status by using PUT command: [https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16/status]
+Use the following endpoint to update a card status by using PUT command: https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16/status
 ```json
 {
   "status": 1
 }
 ```
 - Delete Cards: Users can delete a card they have access to, removing the task from the system.
-Use the following endpoint to delete a card by using DELETE command: [https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16]
+Use the following endpoint to delete a card by using DELETE command: https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16
 
 By following these steps, users can effectively create, manage, and track tasks using the Cards RESTful API.
 
 ## Documentation
 
-You can access swagger documentation by following the link: [https://localhost:7236/swagger/index.html]
+You can access swagger documentation by following the link: https://localhost:7236/swagger/index.html
