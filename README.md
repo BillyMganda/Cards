@@ -11,12 +11,8 @@ The Cards RESTful web service is a powerful tool built on C#/.NET, designed for 
   - [Endpoints](#endpoints)
   - [Authentication](#authentication)
   - [Request and Response Examples](#request-and-response-examples)
-- [Documentation](#documentation)
-  - [API Reference](#api-reference)
-  - [Models](#models)
-- [Contributing](#contributing)
-- [License](#license)
-
+- [Documentation](#documentation)  
+  
 ## Introduction
 
 The Cards RESTful web service is a C#/.NET application designed for managing tasks in the form of cards. Users are uniquely identified by their email address and have roles of either Member or Admin, requiring authentication via password to access cards.
@@ -80,37 +76,57 @@ GO
 ```
 
 ## Usage
+Users can interact with the Cards RESTful API to manage tasks efficiently. Here's how they can use the API:
 
-Explain how users can use your API.
+- User Registration: The register endpoint(https://localhost:7236/api/Authentication/register) is used to register a user with role as memeber(0) or admin(1)
+```json
+{
+  "email": "admin@example.com",
+  "password": "string",
+  "role": 1
+}
+```
+- Authentication: Users need to authenticate themselves using their email and password to access the API endpoints(https://localhost:7236/api/Authentication/login). Upon successful authentication, a JSON Web Token (JWT) is generated, which should be included in the Authorization header of subsequent API requests.
+```json
+{
+  "email": "admin@example.com",
+  "password": "string"
+}
+```
+- Create Cards: Users can create new cards by providing a name for the task. Optionally, they can include a description and specify a color for the card. Upon creation, the status of the card is set to "To Do"(Status 0) by default. Use the following endpoint to create a card: https://localhost:7236/api/Cards
+```json
+{
+  "name": "card name",
+  "description": "card description",
+  "color": "silver"
+}
+```
+- Search Cards: Users can search through cards they have access to by specifying various filters such as name, color, status, and date of creation. Additionally, they can limit the number of results and sort them based on different criteria. Use the following endpoint to search for cards: https://localhost:7236/api/Cards/search?Name=card&Color=white&Status=0&Page=1&Size=1&Offset=0&Limit=0
+- Retrieve a Card: Users can request a single card they have access to by providing the card's ID. This allows them to view the details of a specific task.
+Use the following endpoint to retrieve a card: https://localhost:7236/api/Cards/cardId?cardId=80b2c1e6-7783-4a39-3ea7-08dc2c59dc16
+- Retrieve a list of cards: Users can request a list of cards they have access to. This allows them to view the details of cards.
+Use the following endpoint to retrieve a list of cards: [https://localhost:7236/api/Cards]
+- Update Cards: Users can update the name, description, color of a card they have access to. They can also clear out the contents of the description and color fields if needed.
+Use the following endpoint to update a card by using PUT command: [https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16]
+```json
+{
+  "name": "stringY",
+  "description": "stringY",
+  "color": "stringY"
+}
+```
+- Update Cards Status: Users can update the status of a card they have access to by passing a request body in JSON format.
+Use the following endpoint to update a card status by using PUT command: [https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16/status]
+```json
+{
+  "status": 1
+}
+```
+- Delete Cards: Users can delete a card they have access to, removing the task from the system.
+Use the following endpoint to delete a card by using DELETE command: [https://localhost:7236/api/Cards/92b45f06-c2eb-4202-3eaa-08dc2c59dc16]
 
-### Endpoints
-
-List and describe each endpoint available in your API.
-
-### Authentication
-
-Explain how authentication works in your API.
-
-### Request and Response Examples
-
-Provide examples of requests and responses for each endpoint.
+By following these steps, users can effectively create, manage, and track tasks using the Cards RESTful API.
 
 ## Documentation
 
-Provide links to additional documentation or resources.
-
-### API Reference
-
-Link to the detailed API reference documentation.
-
-### Models
-
-Link to the documentation for data models used in your API.
-
-## Contributing
-
-Explain how others can contribute to your project.
-
-## License
-
-Include licensing information for your project.
+You can access swagger documentation by following the link: [https://localhost:7236/swagger/index.html]
