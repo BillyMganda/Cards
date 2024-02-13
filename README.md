@@ -31,8 +31,15 @@ Authentication is implemented using JSON Web Tokens (JWT), allowing users to inc
 
 List the key features of your API.
 
-- Feature 1
-- Feature 2
+- User Authentication: Users are authenticated using email and password, with support for JSON Web Tokens (JWT).
+- User Roles: Users have roles (Member or Admin) determining their access levels to cards.
+- Card Creation: Users can create cards by specifying a mandatory name along with optional description and color.
+- Card Status: Upon creation, cards default to a "To Do"(0) status, with options to update status to "In Progress"(1) or "Done"(2).
+- Access Control: Members have access to cards they created, while Admins have access to all cards.
+- Search and Filtering: Users can search cards by name, color, status, and date of creation, with optional pagination and sorting features.
+- Single Card Retrieval: Users can request a single card they have access to.
+- Card Modification: Users can update the name, description, color, and status of cards they have access to, with support for clearing description and color fields.
+- Card Deletion: Users can delete cards they have access to, providing efficient management of task lists.
 - ...
 
 ## Getting Started
