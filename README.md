@@ -6,9 +6,7 @@ The Cards RESTful web service is a powerful tool built on C#/.NET, designed for 
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+- [Getting Started](#getting-started)  
 - [Usage](#usage)
   - [Endpoints](#endpoints)
   - [Authentication](#authentication)
@@ -40,7 +38,6 @@ Key features of the API.
 - Single Card Retrieval: Users can request a single card they have access to.
 - Card Modification: Users can update the name, description, color, and status of cards they have access to, with support for clearing description and color fields.
 - Card Deletion: Users can delete cards they have access to, providing efficient management of task lists.
-- ...
 
 ## Getting Started
 
@@ -81,15 +78,6 @@ ALTER TABLE [dbo].[Cards]  WITH CHECK ADD FOREIGN KEY([UserId])
 REFERENCES [dbo].[Users] ([Id])
 GO
 ```
-- 
-
-### Prerequisites
-
-List any prerequisites that users need before using your API.
-
-### Installation
-
-Provide step-by-step instructions on how to install and configure your API.
 
 ## Usage
 
