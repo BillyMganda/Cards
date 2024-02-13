@@ -1,11 +1,6 @@
 # Cards API
 
-The Cards RESTful web service is a C#/.NET application designed for managing tasks in the form of cards. 
-Users are uniquely identified by their email address and have roles of either Member or Admin, requiring authentication via password to access cards.
-
-Members can create cards with mandatory names and optional descriptions and colors. Upon creation, cards default to the "To Do" status. The service supports searching through cards with filters for name, color, status, and creation date, and allows for pagination and sorting options. Users can request single cards, update card details including name, description, color, and status, and delete cards they have access to.
-
-Authentication is implemented using JSON Web Tokens (JWT), allowing users to include the token in the Authorization header for subsequent API calls. The service provides a robust and flexible solution for task management, catering to both individual users and administrators with varying access levels.
+The Cards RESTful web service is a powerful tool built on C#/.NET, designed for efficient task management through intuitive card creation and manipulation. With support for user roles, authentication via JSON Web Tokens, and comprehensive filtering options, it offers a seamless experience for both members and administrators.
 
 ## Table of Contents
 
@@ -26,7 +21,11 @@ Authentication is implemented using JSON Web Tokens (JWT), allowing users to inc
 
 ## Introduction
 
-Provide a brief overview of your API, its purpose, and any relevant information.
+The Cards RESTful web service is a C#/.NET application designed for managing tasks in the form of cards. Users are uniquely identified by their email address and have roles of either Member or Admin, requiring authentication via password to access cards.
+
+Members can create cards with mandatory names and optional descriptions and colors. Upon creation, cards default to the "To Do" status. The service supports searching through cards with filters for name, color, status, and creation date, and allows for pagination and sorting options. Users can request single cards, update card details including name, description, color, and status, and delete cards they have access to.
+
+Authentication is implemented using JSON Web Tokens (JWT), allowing users to include the token in the Authorization header for subsequent API calls. The service provides a robust and flexible solution for task management, catering to both individual users and administrators with varying access levels.
 
 ## Features
 
