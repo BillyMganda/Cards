@@ -112,7 +112,7 @@ Use the following endpoint to retrieve a card: https://localhost:7236/api/Cards/
         "status": 0,
         "createdAt": "2024-02-12T23:16:01.75",
         "userId": "94764e44-54b1-4e94-b5e4-cf82704eb35b"
-    }
+}
 ```
 - Retrieve a list of cards: Users can request a list of cards they have access to. This allows them to view the details of cards.
 Use the following endpoint to retrieve a list of cards: https://localhost:7236/api/Cards
