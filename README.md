@@ -8,9 +8,6 @@ The Cards RESTful web service is a powerful tool built on C#/.NET, designed for 
 - [Features](#features)
 - [Getting Started](#getting-started)  
 - [Usage](#usage)
-  - [Endpoints](#endpoints)
-  - [Authentication](#authentication)
-  - [Request and Response Examples](#request-and-response-examples)
 - [Documentation](#documentation)  
   
 ## Introduction
